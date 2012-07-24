@@ -1,3 +1,21 @@
+/*
+ * McZLauncher (ZeTRiX's Minecraft Launcher)
+ * Copyright (C) 2012 Evgen Yanov <http://www.zetlog.ru>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program (In the "_License" folder). If not, see <http://www.gnu.org/licenses/>.
+*/
+
 package ru.zetrix;
 
 import java.awt.Color;
@@ -19,6 +37,7 @@ public class MServ extends JFrame {
     
     public static JTabbedPane Content;
     public static Box MainBox;
+    private static Box AboutBox;
     
     public JButton Go = new JButton("Run MasterServer", (new ImageIcon(Util.getRes("go.png"))));
     public JButton Send = new JButton("Send command", (new ImageIcon(Util.getRes("send.png"))));
@@ -27,6 +46,13 @@ public class MServ extends JFrame {
     public static JTextField ClNum = new JTextField(20);
     public static JTextPane Text;
     public DataOutputStream out;
+    
+    public static JLabel About = new JLabel("McZMasterServer (ZeTRiX's Master Server for  McZLauncher)");
+    public static JLabel About1 = new JLabel("This program is for a launcher's operator");
+    public static JLabel About2 = new JLabel("to use it - push the Run button and then start the launcher!");
+    public static JLabel About3 = new JLabel("Do not forget to write the IP of MasterServer in connect.php");
+    public static JLabel About4 = new JLabel("Licensed under GNU GPL ver.3");
+    public static JLabel About5 = new JLabel("Copyright (C) 2012 ZeTRiX (Evgen Yanov)");
     
     public MServ() {
         setTitle("McZMasterServer (Coded by ZeTRiX)");
@@ -72,6 +98,27 @@ public class MServ extends JFrame {
         MainBox.add(Box.createVerticalStrut(17));
         MainBox.add(box4);
         Content.add("Starter", MainBox);
+        
+        Box ab0 = Box.createHorizontalBox();
+        Box ab1 = Box.createVerticalBox();
+        ab1.add(About);
+        ab1.add(About1);
+        ab1.add(About2);
+        ab1.add(About3);
+        ab0.add(ab1);
+        Box ab2 = Box.createHorizontalBox();
+        ab2.add(About4);
+        ab2.add(Box.createHorizontalStrut(6));
+        Box ab3 = Box.createHorizontalBox();
+        ab3.add(About5);
+        AboutBox = Box.createVerticalBox();
+        AboutBox.setBorder(new EmptyBorder(12,12,12,12));
+        AboutBox.add(ab0);
+        AboutBox.add(Box.createVerticalStrut(8));
+        AboutBox.add(ab2);
+        AboutBox.add(Box.createVerticalStrut(6));
+        AboutBox.add(ab3);
+        Content.add("About", AboutBox);
         
         this.getContentPane().add(Content);
         
