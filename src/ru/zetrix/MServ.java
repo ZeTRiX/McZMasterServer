@@ -146,7 +146,11 @@ public class MServ extends JFrame {
                     System.out.println("Waiting for a client...");
                     
                     Socket socket = ss.accept();
-                    System.out.println("Connected from: " + socket.getInetAddress().getHostAddress() + "/" + socket.getInetAddress().getHostName());
+                    JOptionPane.showMessageDialog((Component)
+                            null,
+                            "Connected from: " + socket.getInetAddress().getHostAddress() + "/" + socket.getInetAddress().getHostName(),
+                            "Someone connected",
+                            JOptionPane.WARNING_MESSAGE);
                     
                     InputStream sin = socket.getInputStream();
                     OutputStream sout = socket.getOutputStream();
