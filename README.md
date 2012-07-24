@@ -1,0 +1,4 @@
+McZMasterServer
+===============
+
+MasterServer for McZLauncher
